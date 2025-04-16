@@ -5,7 +5,16 @@
 
 export function getClientsWithLetterInName(array, letter) {
   // Your code goes here...
+  var hasLetter = [];
+  for (var x = 0; x < array.length; x++) {
+    var findLetter = RegExp(letter, "i");
+    var foundLetter = array[x].name.match(findLetter);
 
+    if (foundLetter != null) {
+      hasLetter.push(array[x].name);
+    }
+  }
+  return hasLetter;
 }
 
 // === TEST YOURSELF ===
