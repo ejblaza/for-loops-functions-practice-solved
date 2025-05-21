@@ -11,16 +11,16 @@
 
 export function getAllAccountsWithSumsOfDepositsLess2000(array) {
   var lessTwoThousand = [];
-  for (var x = 0; x < array.length; x++) {
+  for (var user of array) {
     var sum = 0;
-    if (Object.hasOwn(array[x], "deposits")) {
-      for (var y = 0; y < array[x].deposits.length; y++) {
-        sum += array[x].deposits[y];
+    if (user.deposits) {
+      for (var amount of user.deposits) {
+        sum += amount;
       }
       if (sum < 2000) {
-        lessTwoThousand.push(array[x]);
+        lessTwoThousand.push(user);
       } else continue;
-    } else lessTwoThousand.push(array[x]);
+    } else lessTwoThousand.push(user);
   }
   return lessTwoThousand;
 }

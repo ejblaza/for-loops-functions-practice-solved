@@ -6,12 +6,11 @@
 
 export function doesArrayInclude(array, value) {
   // Your code goes here...
-  var include = false;
   for (var x = 0; x < array.length; x++) {
-    if (value == array[x]) include = true;
+    if (value === array[x]) return true;
     else continue;
   }
-  return include;
+  return false;
 }
 
 // === TEST YOURSELF ===

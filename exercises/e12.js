@@ -6,11 +6,10 @@
 export function getAllDepositsGreaterThanOneHundred(array) {
   // Your code goes here...
   var greaterHundred = [];
-  for (var x = 0; x < array.length; x++) {
-    if (Object.hasOwn(array[x], "deposits")) {
-      for (var y = 0; y < array[x].deposits.length; y++) {
-        if (array[x].deposits[y] > 100)
-          greaterHundred.push(array[x].deposits[y]);
+  for (var user of array) {
+    if (user.deposits) {
+      for (var amount of user.deposits) {
+        if (amount > 100) greaterHundred.push(amount);
       }
     } else continue;
   }

@@ -7,25 +7,25 @@
 export function getClientsWithWrongBalance(array) {
   // Your code goes here...
   var wrongBalance = [];
-  for (var x = 0; x < array.length; x++) {
+  for (var user of array) {
     var difference;
     var sumDeposits = 0;
     var sumWithdrawals = 0;
-    if (Object.hasOwn(array[x], "deposits")) {
-      for (var y = 0; y < array[x].deposits.length; y++) {
-        sumDeposits += array[x].deposits[y];
+    if (user.deposits) {
+      for (var amount of user.deposits) {
+        sumDeposits += amount;
       }
     } else continue;
-    if (Object.hasOwn(array[x], "withdrawals")) {
-      for (var z = 0; z < array[x].withdrawals.length; z++) {
-        sumWithdrawals += array[x].withdrawals[z];
+    if (user.withdrawals) {
+      for (var amount of user.withdrawals) {
+        sumWithdrawals += amount;
       }
     } else continue;
 
     difference = sumDeposits - sumWithdrawals;
 
-    if (difference != array[x].balance) {
-      wrongBalance.push(array[x]);
+    if (difference != user.balance) {
+      wrongBalance.push(user);
     } else continue;
   }
   return wrongBalance;

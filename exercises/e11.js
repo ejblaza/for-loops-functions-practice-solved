@@ -7,15 +7,14 @@
 export function getAllWithdrawals(array) {
   // Your code goes here...
   var sum = [];
-  for (var x = 0; x < array.length; x++) {
-    sum[x] = 0;
-    if (Object.hasOwn(array[x], "withdrawals")) {
-      for (var y = 0; y < array[x].withdrawals.length; y++) {
-        sum[x] += array[x].withdrawals[y];
+  for (var user of array) {
+    var userWithdrawals = 0;
+    if (user.withdrawals) {
+      for (var amount of user.withdrawals) {
+        userWithdrawals += amount;
       }
-    } else {
-      sum[x] = 0;
     }
+    sum.push(userWithdrawals);
   }
   return sum;
 }

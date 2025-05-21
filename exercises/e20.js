@@ -8,20 +8,17 @@ export function separateNamesWithAFromRest(array) {
   // Your code goes here...
   var arrayWithA = [];
   var arrayNoA = [];
-  var combineArray = [];
-  for (var x = 0; x < array.length; x++) {
+  for (var name of array) {
     var haveA = false;
-    for (var y = 0; y < array[x].length; y++) {
-      if (array[x].charAt(y) == "a") haveA = true;
+    for (var y = 0; y < name.length; y++) {
+      if (name[y] === "a" || name[y] === "A") haveA = true;
       else continue;
     }
-    if (haveA) arrayWithA.push(array[x]);
-    else arrayNoA.push(array[x]);
+    if (haveA) arrayWithA.push(name);
+    else arrayNoA.push(name);
   }
 
-  combineArray.push(arrayWithA, arrayNoA);
-
-  return combineArray;
+  return [arrayWithA, arrayNoA];
 }
 
 // === TEST YOURSELF ===
